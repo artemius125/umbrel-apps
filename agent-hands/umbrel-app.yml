@@ -3,7 +3,7 @@ id: agent-hands
 name: Agent Hands
 tagline: Настоящий Chrome для агента — руки на железе Umbrel
 category: developer
-version: "1.0.5"
+version: "1.0.6"
 port: 8080
 description: >-
   Контейнер с настоящим Google Chrome, которым управляет агент по CDP.
@@ -16,6 +16,7 @@ support: ""
 icon: https://raw.githubusercontent.com/artemius125/umbrel-apps/main/icon.svg
 gallery: []
 releaseNotes: >-
+  1.0.6 — PulseAudio запускается фоновым процессом (daemonize в контейнере падал).
   1.0.5 — PULSE_SERVER больше не наследуется от образа, звук реально поднимается.
   1.0.4 — починен запуск PulseAudio (устройства и 48 кГц), окно 1600x900 в openbox с панелью.
   1.0.3 — звук (null-sink/source), оконный менеджер с панелью, шрифты Ubuntu; CDP больше не публикуется в LAN, доступен только контейнерам Umbrel.
