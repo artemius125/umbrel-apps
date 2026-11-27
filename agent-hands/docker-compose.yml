@@ -13,7 +13,7 @@ services:
     restart: unless-stopped
 
   browser:
-    image: 192.168.0.81:5000/agent-hands:chrome@sha256:c74d9dab2ae862ec0b9375f9e8d7688ae4471aa710479a4bb247aad09a8a6a24
+    image: 192.168.0.81:5000/agent-hands:1.0.3@sha256:2bfc66e628a0390921bd932dfef35e529a956c8eec7ac101daf4bf2caef45be6
     init: true
     shm_size: "1g"
     cpus: 2.0
@@ -21,8 +21,8 @@ services:
     environment:
       CDP_RELAY_PORT: "9223"
       XVFB_SCREEN: "1920x1080x24"
-    ports:
-      - "9223:9223"
+    # порт НЕ публикуем наружу: CDP доступен только контейнерам Umbrel
+    # (http://agent-hands_browser_1:9223), но не всей локальной сети
     volumes:
       - ${APP_DATA_DIR}/data:/profile
     restart: unless-stopped

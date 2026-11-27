@@ -3,19 +3,20 @@ id: agent-hands
 name: Agent Hands
 tagline: Настоящий Chrome для агента — руки на железе Umbrel
 category: developer
-version: "1.0.2"
+version: "1.0.3"
 port: 8080
 description: >-
   Контейнер с настоящим Google Chrome, которым управляет агент по CDP.
   Внутри поднимается Xvfb, Chrome работает с постоянным профилем
   (cookies, история, логины сохраняются между перезапусками).
-  CDP доступен на порту 9223 этой машины: http://<umbrel>:9223/json/version
+  CDP доступен контейнерам Umbrel: http://agent-hands_browser_1:9223/json/version
 developer: Artem
 website: ""
 support: ""
 icon: https://raw.githubusercontent.com/artemius125/umbrel-apps/main/icon.svg
 gallery: []
 releaseNotes: >-
+  1.0.3 — звук (null-sink/source), оконный менеджер с панелью, шрифты Ubuntu; CDP больше не публикуется в LAN, доступен только контейнерам Umbrel.
   1.0.2 — иконка грузится с GitHub, а не с локального сервера.
   1.0.1 — страница статуса показывает готовую ссылку на CDP вместо неработающей проверки.
   1.0.0 — первый выпуск: Chrome 158, Xvfb 1920x1080, CDP-релей на 9223, постоянный профиль.
