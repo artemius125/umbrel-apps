@@ -13,7 +13,7 @@ services:
     restart: unless-stopped
 
   browser:
-    image: 192.168.0.81:5000/agent-hands@sha256:ff7ab6c43f4acfa309f582ce0d17a3c19d8d36942f19561b5e730cc8bf504748
+    image: 192.168.0.81:5000/agent-hands@sha256:3d3b23d7a29db0a75871d0cc89ad61aad9d000534ba9e8c291805384821f74d6
     init: true
     shm_size: "1g"
     cpus: 2.0
