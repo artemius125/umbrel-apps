@@ -1,0 +1,28 @@
+services:
+  app_proxy:
+    environment:
+      APP_HOST: agent-hands_web_1
+      APP_PORT: 8080
+
+  web:
+    image: busybox:1.37.0-musl
+    user: "1000:1000"
+    command: [httpd, -f, -p, "8080", -h, /site]
+    volumes:
+      - ${APP_DATA_DIR}/hooks/web:/site:ro
+    restart: unless-stopped
+
+  browser:
+    image: 192.168.0.81:5000/agent-hands:chrome@sha256:c74d9dab2ae862ec0b9375f9e8d7688ae4471aa710479a4bb247aad09a8a6a24
+    init: true
+    shm_size: "1g"
+    cpus: 2.0
+    mem_limit: 2g
+    environment:
+      CDP_RELAY_PORT: "9223"
+      XVFB_SCREEN: "1920x1080x24"
+    ports:
+      - "9223:9223"
+    volumes:
+      - ${APP_DATA_DIR}/data:/profile
+    restart: unless-stopped
